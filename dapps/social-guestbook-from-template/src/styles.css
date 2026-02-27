@@ -1,0 +1,266 @@
+/* ── Tokens ──────────────────────────────────────────────────────────────── */
+:root {
+  /* Colors — brand lock: do not add ad-hoc hex values in components */
+  --bg:             #0a0a0a;
+  --surface:        #111111;
+  --card:           #161616;
+  --card-hover:     #1c1c1c;
+  --border:         #242424;
+  --border-hover:   #363636;
+
+  --orange:         #F7931A;  /* primary accent — one per view */
+  --orange-dark:    #d4790f;
+  --orange-dim:     rgba(247, 147, 26, 0.1);
+
+  --text:           #efefef;
+  --text-2:         #999;
+  --text-3:         #555;
+
+  --green:          #22c55e;
+  --green-dim:      rgba(34, 197, 94, 0.1);
+  --green-border:   rgba(34, 197, 94, 0.2);
+
+  --red:            #ef4444;
+  --red-dim:        rgba(239, 68, 68, 0.1);
+  --red-border:     rgba(239, 68, 68, 0.2);
+
+  /* Typography */
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Spacing scale */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+
+  /* Shape */
+  --r-sm: 4px;
+  --r-md: 8px;
+
+  /* Layout */
+  --content-width: 680px;
+  --header-h:      56px;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+}
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+.app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  height: var(--header-h);
+  border-bottom: 1px solid var(--border);
+  padding: 0 var(--sp-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-header__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: -0.01em;
+}
+
+.app-main {
+  flex: 1;
+  max-width: var(--content-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--sp-8) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+/* ── Base button ─────────────────────────────────────────────────────────── */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  border-radius: var(--r-sm);
+  padding: var(--sp-2) var(--sp-4);
+  transition: opacity 0.15s;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: #000;
+  font-weight: 600;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--orange-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-2);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+/* ── Wallet connect ──────────────────────────────────────────────────────── */
+.wallet-connect {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.wallet-connect__btn {
+  background: var(--orange);
+  color: #000;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+}
+
+.wallet-connect__btn:hover:not(:disabled) {
+  background: var(--orange-dark);
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.wallet-info__row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.wallet-info__label {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.wallet-info__address {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-2);
+}
+
+.wallet-info__disconnect {
+  background: transparent;
+  color: var(--text-3);
+  font-size: 0.8rem;
+  padding: var(--sp-1) var(--sp-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+}
+
+.wallet-info__disconnect:hover {
+  color: var(--red);
+  border-color: var(--red-border);
+}
+
+/* ── TxStatus ────────────────────────────────────────────────────────────── */
+.tx-status {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  font-size: 0.85rem;
+  border-left: 3px solid var(--border);
+  background: var(--surface);
+}
+
+.tx-status--adding-intention { border-left-color: var(--orange); }
+.tx-status--finalizing        { border-left-color: var(--orange); }
+.tx-status--signing           { border-left-color: var(--orange); }
+.tx-status--broadcasting      { border-left-color: var(--orange); }
+.tx-status--pending-confirm   { border-left-color: var(--text-3); }
+.tx-status--confirmed         { border-left-color: var(--green); }
+.tx-status--error             { border-left-color: var(--red); background: var(--red-dim); }
+
+.tx-status__label {
+  color: var(--text-2);
+  flex: 1;
+}
+
+.tx-status--confirmed .tx-status__label { color: var(--green); }
+.tx-status--error     .tx-status__label { color: var(--red); }
+
+.tx-status__finalize {
+  background: var(--orange);
+  color: #000;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-sm);
+  animation: tx-attention 1.6s ease-in-out infinite;
+}
+
+.tx-status__reset {
+  background: transparent;
+  border: 1px solid var(--red-border);
+  color: var(--red);
+  font-size: 0.8rem;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-sm);
+}
+
+.tx-status__explorer-link {
+  font-size: 0.8rem;
+  color: var(--orange);
+  text-decoration: none;
+  font-family: var(--font-mono);
+}
+
+.tx-status__explorer-link:hover { text-decoration: underline; }
+
+@keyframes tx-attention {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.85; transform: scale(0.97); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tx-status__finalize { animation: none; }
+}

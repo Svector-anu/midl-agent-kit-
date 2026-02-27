@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "toolchain": {
+    "framework": "hardhat",
+    "viemOverride": "npm:@midl/viem@2.21.39",
+    "evmVersion": "paris",
+    "sourcifyEnabled": false
+  },
+  "network": {
+    "default": "staging",
+    "rpc": "https://rpc.staging.midl.xyz",
+    "explorer": "https://blockscout.staging.midl.xyz"
+  },
+  "features": {
+    "deployment": true,
+    "verification": true,
+    "walletXverse": true,
+    "walletLeather": true,
+    "erc20": true,
+    "erc721": false,
+    "erc1155": false,
+    "erc8004": false,
+    "eip7702": false,
+    "upgradeable": false,
+    "uiSkills": true,
+    "uiAutoPolish": "milestones"
+  },
+  "gates": {
+    "requirePreflight": true,
+    "verificationMode": "soft",
+    "maxAutoPolishIterations": 3
+  }
+}

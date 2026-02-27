@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "verified": [
+    {
+      "name": "SocialGuestbook",
+      "address": "0xA4D2CbAF027125a967E48e94b1Baa03363981b1c",
+      "network": "regtest",
+      "chainId": 15001,
+      "blockscoutVerified": true,
+      "onChainConfirmed": true,
+      "creationTx": "0xeef411f9856d84b9acd93eef94c96a44ae0923d68df14634c326b60c017c2723",
+      "verifiedAt": "2026-02-27",
+      "solcVersion": "0.8.28",
+      "optimizer": { "enabled": false },
+      "evmVersion": "paris",
+      "sourcePath": "dapps/social-guestbook/contracts/SocialGuestbook.sol",
+      "blockscoutUrl": "https://blockscout.staging.midl.xyz/address/0xA4D2CbAF027125a967E48e94b1Baa03363981b1c"
+    }
+  ]
+}

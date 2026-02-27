@@ -1,0 +1,15 @@
+{
+  "name": "social-guestbook-test",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "dependencies": {
+    "@midl/core": "^3.0.1",
+    "@midl/executor": "^3.0.1",
+    "@midl/node": "3.0.1",
+    "viem": "npm:@midl/viem@2.21.39"
+  },
+  "overrides": {
+    "viem": "npm:@midl/viem@2.21.39"
+  }
+}

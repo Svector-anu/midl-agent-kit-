@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Claude session data
+.claude/
+
+# SharedContext
+.sharedcontext/
+
+# npm cache
+.npm/
+
+# Temp cache dirs
+/tmp/
+
+# Hardhat build artifacts and cache (generated — do not commit)
+artifacts/
+cache/

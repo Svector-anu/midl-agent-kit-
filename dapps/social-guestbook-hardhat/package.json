@@ -1,0 +1,16 @@
+{
+  "name": "social-guestbook-hardhat",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0",
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.0.0"
+  }
+}
