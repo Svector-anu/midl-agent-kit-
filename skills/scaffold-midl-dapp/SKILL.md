@@ -95,12 +95,14 @@ cp -r templates/midl-vite-dapp dapps/<slug>
 | `src/App.tsx` | `"My MIDL dApp"` → `"<Display Name>"` |
 | `index.html` | `<title>My MIDL dApp</title>` → `<title><Display Name></title>` |
 
-If `CONTRACT_NAME` was found in `deployment-log.json`, also update the export names:
+If `CONTRACT_NAME` was found in `deployment-log.json`, also update the export names in these files:
 
-| Old | New |
-|-----|-----|
-| `CONTRACT_ADDRESS` | `<CONTRACT_NAME>_ADDRESS` |
-| `CONTRACT_ABI` | `<CONTRACT_NAME>_ABI` |
+| File | Old | New |
+|------|-----|-----|
+| `src/lib/contract.ts` | `CONTRACT_ADDRESS` | `<CONTRACT_NAME>_ADDRESS` |
+| `src/lib/contract.ts` | `CONTRACT_ABI` | `<CONTRACT_NAME>_ABI` |
+| `src/hooks/useDemoHealth.ts` | `CONTRACT_ADDRESS` | `<CONTRACT_NAME>_ADDRESS` |
+| `src/components/DemoHealthBanner.tsx` | `CONTRACT_ADDRESS` | `<CONTRACT_NAME>_ADDRESS` |
 
 ### 3 — Apply network substitution (if mainnet selected)
 

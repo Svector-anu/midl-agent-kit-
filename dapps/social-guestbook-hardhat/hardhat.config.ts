@@ -1,7 +1,17 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@midl/hardhat-deploy";
 
 const config: HardhatUserConfig = {
+  midl: {
+    networks: {
+      regtest: {
+        network: "regtest",
+        hardhatNetwork: "regtest",
+        mnemonic: process.env.MNEMONIC ?? "",
+      },
+    },
+  },
   solidity: {
     version: "0.8.28",
     settings: {

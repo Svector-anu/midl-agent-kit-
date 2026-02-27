@@ -264,3 +264,100 @@ button:disabled {
 @media (prefers-reduced-motion: reduce) {
   .tx-status__finalize { animation: none; }
 }
+
+/* ── Demo health banner ──────────────────────────────────────────────────── */
+.demo-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--red-dim);
+  border-bottom: 1px solid var(--red-border);
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.demo-banner__icon {
+  color: var(--red);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.demo-banner__text {
+  color: var(--text-2);
+  flex: 1;
+  min-width: 200px;
+}
+
+.demo-banner__actions {
+  display: flex;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.demo-banner__btn {
+  font-size: 0.8rem;
+  padding: var(--sp-1) var(--sp-3);
+}
+
+/* modal overlay */
+.demo-banner__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: var(--sp-6);
+}
+
+.demo-banner__modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-8);
+  max-width: 540px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.demo-banner__modal-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.demo-banner__label {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: calc(-1 * var(--sp-2));
+}
+
+.demo-banner__cmd {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: var(--sp-3) var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text);
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.demo-banner__note {
+  font-size: 0.8rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.demo-banner__note code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--orange);
+}

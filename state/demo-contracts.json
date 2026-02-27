@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "chainEpoch": "2026-02",
+  "contracts": [
+    {
+      "name": "SocialGuestbook",
+      "templateSlug": "social-guestbook",
+      "address": "0xA4D2CbAF027125a967E48e94b1Baa03363981b1c",
+      "network": "staging",
+      "chainId": 15001,
+      "testHarnessPath": "dapps/social-guestbook-hardhat",
+      "status": "active",
+      "lastHealthCheck": "2026-02-27T00:00:00.000Z"
+    }
+  ]
+}

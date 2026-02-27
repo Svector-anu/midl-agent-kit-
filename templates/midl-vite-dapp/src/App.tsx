@@ -1,5 +1,6 @@
 import { WalletProvider } from "./wallet/WalletProvider";
 import { WalletConnect } from "./components/WalletConnect";
+import { DemoHealthBanner } from "./components/DemoHealthBanner";
 
 // SCAFFOLD: import and add your feature components here.
 
@@ -7,6 +8,7 @@ export function App() {
   return (
     <WalletProvider>
       <div className="app">
+        <DemoHealthBanner />
         <header className="app-header">
           <h1 className="app-header__title">
             {/* SCAFFOLD: replace with your dApp name */}

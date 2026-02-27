@@ -563,6 +563,70 @@ Phase 3d: Verify (should be one-shot)
 
 ---
 
+## 22. Demo Contract Auto-Heal (canonical rule)
+
+### What it is
+
+Every template dApp checks whether its demo contract is live on staging at app mount. If `eth_getCode` returns `"0x"` (no bytecode = testnet reset), a non-blocking banner appears. The user decides whether to redeploy or continue in UI-only preview mode.
+
+**Never auto-deploys.** Explicit click required.
+
+### State file: `state/demo-contracts.json`
+
+- Schema version 1.0, same as other state files.
+- Tracks only **template demo instances** — not every deployed contract.
+- `deployment-log.json` remains the source of truth; `demo-contracts.json` is a health-status overlay.
+
+```json
+{
+  "schemaVersion": "1.0",
+  "chainEpoch": "YYYY-MM",
+  "contracts": [{
+    "name": "ContractName",
+    "templateSlug": "template-slug",
+    "address": "0x...",
+    "network": "staging",
+    "chainId": 15001,
+    "testHarnessPath": "dapps/<name>-hardhat",
+    "status": "active",
+    "lastHealthCheck": "<ISO timestamp>"
+  }]
+}
+```
+
+### Health check hook: `src/hooks/useDemoHealth.ts`
+
+Uses `usePublicClient` (wagmi) → `getBytecode({ address })`. Fires once on mount. Returns `{ status, dismiss, recheck }`.
+
+Status states: `"checking"` → `"healthy"` | `"dead"` | `"dismissed"`
+
+### Banner component: `src/components/DemoHealthBanner.tsx`
+
+- Renders nothing when `status !== "dead"`.
+- Banner: warning strip with "Redeploy demo" and "Not now (UI-only preview)".
+- "Redeploy demo" opens a modal showing the exact terminal commands.
+- "Done — reload app" calls `window.location.reload()` — Vite re-reads updated JSON from disk.
+
+### Redeploy flow (terminal, not browser)
+
+```bash
+# From the kit root
+cd dapps/<name>-hardhat
+MNEMONIC=<your-mnemonic> npx hardhat deploy --network regtest --tags <ContractName>
+
+# Optional verification
+npx hardhat verify --network regtest <NEW_ADDRESS>
+```
+
+The deploy script (`deploy/001_deploy_ContractName.ts`) writes the new address to both `state/deployment-log.json` and `state/demo-contracts.json` automatically.
+
+### Scaffold substitution
+
+`scaffold-midl-dapp` must apply these substitutions to `DemoHealthBanner.tsx`:
+- `CONTRACT_ADDRESS` → `<CONTRACT_NAME>_ADDRESS` (import from `../lib/contract`)
+
+---
+
 ## 20. Network Reset Handling
 
 Staging can reset without notice. When detected:
