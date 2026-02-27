@@ -1,25 +1,22 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+// Compatible with OpenZeppelin Contracts ^5.6.0
+pragma solidity ^0.8.27;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
-/**
- * @title ERC20Token
- * @notice Minimal ERC-20 with owner-only mint. Used as the MIDL dashboard demo contract.
- * @dev Initial supply is minted to the deployer. All standard ERC-20 operations
- *      (transfer, approve, allowance, transferFrom) are inherited from OZ ERC20.
- */
-contract ERC20Token is ERC20, Ownable {
-    constructor(
-        string memory name_,
-        string memory symbol_,
-        uint256 initialSupply
-    ) ERC20(name_, symbol_) Ownable(msg.sender) {
-        _mint(msg.sender, initialSupply * 10 ** decimals());
+contract ERC20Token is ERC20, ERC20Burnable, Ownable, ERC20Permit {
+    constructor(address recipient, address initialOwner)
+        ERC20("ERC20Token", "MTT")
+        Ownable(initialOwner)
+        ERC20Permit("ERC20Token")
+    {
+        _mint(recipient, 1000000 * 10 ** decimals());
     }
 
-    function mint(address to, uint256 amount) external onlyOwner {
+    function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
 }

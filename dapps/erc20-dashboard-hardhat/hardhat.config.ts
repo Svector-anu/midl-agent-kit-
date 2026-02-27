@@ -26,6 +26,7 @@ const config: HardhatUserConfig = {
     regtest: {
       url: "https://rpc.staging.midl.xyz",
       chainId: 15001,
+      accounts: { mnemonic: process.env.MNEMONIC ?? "" },
     },
   },
   etherscan: {

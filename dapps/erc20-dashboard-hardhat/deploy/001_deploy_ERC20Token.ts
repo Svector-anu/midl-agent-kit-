@@ -1,7 +1,7 @@
 /**
  * Deploy ERC20Token to MIDL staging (regtest, chainId 15001).
  *
- * Constructor args: name, symbol, initialSupply (1_000_000 tokens, 18 decimals applied in contract)
+ * Constructor args: recipient (premint target), initialOwner (Ownable) — both set to deployer
  *
  * Prerequisites:
  *   - MNEMONIC env var set
@@ -33,9 +33,12 @@ function writeJson(file: string, data: Record<string, unknown>): void {
 const deploy = async (hre: HardhatRuntimeEnvironment) => {
   await hre.midl.initialize();
 
+  const [deployer] = await hre.ethers.getSigners();
+  const deployerAddress = deployer.address;
+
   const result = await hre.midl.deploy(
     "ERC20Token",
-    ["MIDL Test Token", "MTT", 1_000_000],
+    [deployerAddress, deployerAddress],
     {},
     {},
   );
@@ -74,7 +77,7 @@ const deploy = async (hre: HardhatRuntimeEnvironment) => {
       network: "regtest",
       chainId: 15001,
       timestamp: deployedAt,
-      constructorArgs: ["MIDL Test Token", "MTT", 1_000_000],
+      constructorArgs: [deployerAddress, deployerAddress],
       solcVersion: "0.8.28",
       optimizerEnabled: false,
       evmVersion: "paris",
