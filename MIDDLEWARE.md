@@ -11,3 +11,11 @@
 
 ## pauseIfUnsupported(feature)
 - if capabilities.features[feature] !== true → STOP and ask human.
+
+## contractGeneration
+- ALWAYS use the OpenZeppelin MCP tool `generate_contract` (server: OpenZeppelinSolidityContracts) for any OZ-based contract (ERC20, ERC721, ERC1155, Governor).
+- NEVER hand-roll OZ contracts. Hand-rolled code misses audited extensions and deviates from the canonical wizard output.
+- If the MCP server is unavailable (not yet added or session not restarted), STOP and instruct the user to run:
+    claude mcp add -t http OpenZeppelinSolidityContracts https://mcp.openzeppelin.com/contracts/solidity/mcp
+  then restart the session before proceeding.
+- After generating, copy the output verbatim into contracts/<ContractName>.sol — do not modify except to adjust constructor params for the deploy script.
