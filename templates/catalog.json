@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "templates": [
+    {
+      "id": "social-guestbook",
+      "displayName": "Social Guestbook",
+      "status": "stable",
+      "sourceDir": "templates/midl-vite-dapp",
+      "requiredContracts": ["SocialGuestbook"],
+      "requiredCapabilities": [],
+      "features": ["writes", "payable", "events", "social"],
+      "description": "Multi-user guestbook with posts, comments, likes, tips, and user profiles."
+    },
+    {
+      "id": "erc20-dashboard",
+      "displayName": "ERC-20 Dashboard",
+      "status": "experimental",
+      "sourceDir": "templates/erc20-dashboard",
+      "requiredContracts": ["ERC20Token"],
+      "requiredCapabilities": ["erc20"],
+      "features": ["reads", "writes", "transfer", "approve", "mint"],
+      "description": "ERC-20 token dashboard with balance, transfer, approve, and optional mint."
+    },
+    {
+      "id": "base-only",
+      "displayName": "Blank Starter",
+      "status": "stable",
+      "sourceDir": "templates/midl-vite-dapp",
+      "requiredContracts": [],
+      "requiredCapabilities": [],
+      "features": [],
+      "description": "Minimal MIDL dApp with wallet connection only. Bring your own contract and UI."
+    }
+  ]
+}
