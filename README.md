@@ -66,7 +66,7 @@ MIDL staging refreshes periodically. When this happens, demo instances may becom
 
 The app detects this and shows a banner:
 
-> ⚠ Demo instance unavailable — staging has refreshed.
+> ⚠ Demo instance needs redeployment.
 
 Click **Redeploy demo** — the modal shows the exact commands. Run them, then click **Done — reload app**. The app re-reads `state/deployment-log.json` and the banner disappears.
 

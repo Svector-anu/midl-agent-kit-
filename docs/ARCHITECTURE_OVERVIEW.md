@@ -136,7 +136,7 @@ on mount → call useDemoHealth()
   → if code === "0x" (no bytecode at address):
       status = "unavailable"
       DemoHealthBanner renders:
-        "⚠ Demo instance unavailable — staging has refreshed."
+        "⚠ Demo instance needs redeployment."
         [Redeploy demo] → modal with exact CLI commands
         [Not now] → dismiss for session
   → if code exists:

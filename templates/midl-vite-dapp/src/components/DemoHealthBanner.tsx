@@ -51,7 +51,7 @@ export function DemoHealthBanner() {
   return (
     <div className="demo-banner" role="alert">
       <span className="demo-banner__icon" aria-hidden="true">⚠</span>
-      <p className="demo-banner__text">Demo instance unavailable — staging has refreshed.</p>
+      <p className="demo-banner__text">Demo instance needs redeployment.</p>
       <div className="demo-banner__actions">
         <button className="btn-primary demo-banner__btn" onClick={() => setShowModal(true)}>
           Redeploy demo
