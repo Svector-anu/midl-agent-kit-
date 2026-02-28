@@ -1,14 +1,51 @@
 import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
 import "@midl/hardhat-deploy";
+import "@nomicfoundation/hardhat-ethers";
+import "@nomicfoundation/hardhat-verify";
+import "hardhat-deploy";
+import { MaestroSymphonyProvider, MempoolSpaceProvider } from "@midl/core";
+import { midlRegtest } from "@midl/executor";
+import { config as dotenvConfig } from "dotenv";
+import { resolve } from "path";
+
+dotenvConfig({ path: resolve(__dirname, ".env") });
+
+const mnemonic =
+  process.env.MNEMONIC ||
+  "test test test test test test test test test test test junk";
 
 const config: HardhatUserConfig = {
+  networks: {
+    hardhat: {},
+    regtest: {
+      url: "https://rpc.staging.midl.xyz",
+      chainId: midlRegtest.id,
+      accounts: {
+        mnemonic,
+        path: "m/86'/1'/0'/0/0",
+      },
+    },
+  },
   midl: {
     networks: {
       regtest: {
-        network: "regtest",
+        mnemonic,
+        confirmationsRequired: 1,
+        btcConfirmationsRequired: 1,
         hardhatNetwork: "regtest",
-        mnemonic: process.env.MNEMONIC ?? "",
+        network: {
+          explorerUrl: "https://mempool.staging.midl.xyz",
+          id: "regtest",
+          network: "regtest",
+        },
+        providerFactory: () =>
+          new MempoolSpaceProvider({
+            regtest: "https://mempool.staging.midl.xyz",
+          }),
+        runesProviderFactory: () =>
+          new MaestroSymphonyProvider({
+            regtest: "https://runes.staging.midl.xyz",
+          }),
       },
     },
   },
@@ -16,17 +53,7 @@ const config: HardhatUserConfig = {
     version: "0.8.28",
     settings: {
       evmVersion: "paris",
-      optimizer: {
-        enabled: false,
-      },
-    },
-  },
-  networks: {
-    hardhat: {},
-    regtest: {
-      url: "https://rpc.staging.midl.xyz",
-      chainId: 15001,
-      accounts: { mnemonic: process.env.MNEMONIC ?? "" },
+      optimizer: { enabled: false },
     },
   },
   etherscan: {

@@ -1,21 +1,7 @@
-/**
- * Deploy ERC20Token to MIDL staging (regtest, chainId 15001).
- *
- * Constructor args: recipient (premint target), initialOwner (Ownable) — both set to deployer
- *
- * Prerequisites:
- *   - MNEMONIC env var set
- *   - npm install
- *
- * Run:
- *   npx hardhat deploy --network regtest --tags ERC20Token
- *
- * After deploy: state/deployment-log.json and state/demo-contracts.json
- * are updated automatically by this script.
- */
 import * as fs from "fs";
 import * as path from "path";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { DeployFunction } from "hardhat-deploy/types";
 
 const STATE_DIR = path.resolve(__dirname, "../../../state");
 
@@ -30,23 +16,23 @@ function writeJson(file: string, data: Record<string, unknown>): void {
   );
 }
 
-const deploy = async (hre: HardhatRuntimeEnvironment) => {
-  await hre.midl.initialize();
+const deploy: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
+  const { midl } = hre;
 
-  const [deployer] = await hre.ethers.getSigners();
-  const deployerAddress = deployer.address;
+  await midl.initialize();
 
-  const result = await hre.midl.deploy(
-    "ERC20Token",
-    [deployerAddress, deployerAddress],
-    {},
-    {},
-  );
+  const deployerAddress: string = midl.evm.address;
 
-  const newAddress: string = result.address;
+  await midl.deploy("ERC20Token", [deployerAddress, deployerAddress]);
+  await midl.execute();
+
+  const deployed = await midl.get("ERC20Token");
+  if (!deployed) throw new Error("ERC20Token deployment not found after execute()");
+  const newAddress: string = deployed.address;
   const deployedAt = new Date().toISOString();
 
   console.log(`\nERC20Token deployed at: ${newAddress}`);
+  console.log(`Blockscout: https://blockscout.staging.midl.xyz/address/${newAddress}`);
 
   // ── Update state/deployment-log.json ───────────────────────────────────
   type DeployEntry = {
@@ -131,7 +117,7 @@ const deploy = async (hre: HardhatRuntimeEnvironment) => {
   console.log("state/demo-contracts.json updated");
   console.log("\ndeploy-contracts: COMPLETE");
   console.log(`Address: ${newAddress}`);
-  console.log("Verification: run `npx hardhat verify --network regtest " + newAddress + "` to verify");
+  console.log(`Verify: npx hardhat verify --network regtest ${newAddress} ${deployerAddress} ${deployerAddress}`);
 };
 
 deploy.tags = ["ERC20Token"];

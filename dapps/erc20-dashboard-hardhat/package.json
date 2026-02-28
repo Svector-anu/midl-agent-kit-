@@ -7,14 +7,25 @@
     "compile": "npx hardhat compile"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^5.0.0"
+    "@openzeppelin/contracts": "^5.0.0",
+    "viem": "npm:@midl/viem@2.21.39"
   },
   "devDependencies": {
-    "@midl/hardhat-deploy": "latest",
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@midl/core": "3.0.2",
+    "@midl/executor": "3.0.2",
+    "@midl/hardhat-deploy": "3.0.2",
+    "@midl/node": "^3.0.2",
+    "@midl/viem": "*",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^20.0.0",
+    "dotenv": "^16.0.0",
+    "ethers": "^6.4.0",
     "hardhat": "^2.22.0",
-    "typescript": "^5.4.5",
+    "hardhat-deploy": "^1.0.4",
+    "hardhat-deploy-ethers": "^0.4.2",
     "ts-node": "^10.9.2",
-    "@types/node": "^20.0.0"
+    "typescript": "^5.4.5"
   }
 }

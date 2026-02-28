@@ -26,10 +26,30 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": true, "internalType": "uint256", "name": "postId", "type": "uint256" },
-            { "indexed": true, "internalType": "address", "name": "author", "type": "address" },
-            { "indexed": false, "internalType": "string", "name": "text", "type": "string" },
-            { "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "postId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
           ],
           "name": "CommentAdded",
           "type": "event"
@@ -37,10 +57,30 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": true, "internalType": "uint256", "name": "postId", "type": "uint256" },
-            { "indexed": true, "internalType": "address", "name": "author", "type": "address" },
-            { "indexed": false, "internalType": "string", "name": "content", "type": "string" },
-            { "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "postId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
           ],
           "name": "PostCreated",
           "type": "event"
@@ -48,8 +88,18 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": true, "internalType": "uint256", "name": "postId", "type": "uint256" },
-            { "indexed": true, "internalType": "address", "name": "deletedBy", "type": "address" }
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "postId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "deletedBy",
+              "type": "address"
+            }
           ],
           "name": "PostDeleted",
           "type": "event"
@@ -57,8 +107,18 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": true, "internalType": "uint256", "name": "postId", "type": "uint256" },
-            { "indexed": true, "internalType": "address", "name": "liker", "type": "address" }
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "postId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "liker",
+              "type": "address"
+            }
           ],
           "name": "PostLiked",
           "type": "event"
@@ -66,8 +126,18 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": false, "internalType": "uint256", "name": "oldFee", "type": "uint256" },
-            { "indexed": false, "internalType": "uint256", "name": "newFee", "type": "uint256" }
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "oldFee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "newFee",
+              "type": "uint256"
+            }
           ],
           "name": "PostingFeeUpdated",
           "type": "event"
@@ -75,10 +145,30 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": true, "internalType": "uint256", "name": "postId", "type": "uint256" },
-            { "indexed": true, "internalType": "address", "name": "tipper", "type": "address" },
-            { "indexed": true, "internalType": "address", "name": "author", "type": "address" },
-            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "postId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "tipper",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
           ],
           "name": "TipSent",
           "type": "event"
@@ -86,8 +176,18 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": true, "internalType": "address", "name": "user", "type": "address" },
-            { "indexed": false, "internalType": "string", "name": "username", "type": "string" }
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            }
           ],
           "name": "UserRegistered",
           "type": "event"
@@ -95,8 +195,18 @@
         {
           "anonymous": false,
           "inputs": [
-            { "indexed": true, "internalType": "address", "name": "owner", "type": "address" },
-            { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
           ],
           "name": "Withdrawal",
           "type": "event"
@@ -104,31 +214,65 @@
         {
           "inputs": [],
           "name": "MAX_COMMENTS_PER_POST",
-          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
           "stateMutability": "view",
           "type": "function"
         },
         {
           "inputs": [],
           "name": "MAX_COMMENT_LENGTH",
-          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
-          "name": "addressToProfile",
           "outputs": [
-            { "internalType": "string", "name": "username", "type": "string" },
-            { "internalType": "bool", "name": "exists", "type": "bool" }
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
           ],
           "stateMutability": "view",
           "type": "function"
         },
         {
           "inputs": [
-            { "internalType": "uint256", "name": "_postId", "type": "uint256" },
-            { "internalType": "string", "name": "_text", "type": "string" }
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "addressToProfile",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_postId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "_text",
+              "type": "string"
+            }
           ],
           "name": "commentOnPost",
           "outputs": [],
@@ -136,35 +280,77 @@
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "string", "name": "_content", "type": "string" }],
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_content",
+              "type": "string"
+            }
+          ],
           "name": "createPost",
           "outputs": [],
           "stateMutability": "payable",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_postId", "type": "uint256" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_postId",
+              "type": "uint256"
+            }
+          ],
           "name": "deletePost",
           "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_postId", "type": "uint256" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_postId",
+              "type": "uint256"
+            }
+          ],
           "name": "getCommentCount",
-          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
           "stateMutability": "view",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_postId", "type": "uint256" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_postId",
+              "type": "uint256"
+            }
+          ],
           "name": "getComments",
           "outputs": [
             {
               "components": [
-                { "internalType": "address", "name": "author", "type": "address" },
-                { "internalType": "string", "name": "text", "type": "string" },
-                { "internalType": "uint256", "name": "timestamp", "type": "uint256" }
+                {
+                  "internalType": "address",
+                  "name": "author",
+                  "type": "address"
+                },
+                {
+                  "internalType": "string",
+                  "name": "text",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "timestamp",
+                  "type": "uint256"
+                }
               ],
               "internalType": "struct SocialGuestbook.Comment[]",
               "name": "",
@@ -175,41 +361,105 @@
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_postId", "type": "uint256" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_postId",
+              "type": "uint256"
+            }
+          ],
           "name": "getPost",
           "outputs": [
-            { "internalType": "uint256", "name": "id", "type": "uint256" },
-            { "internalType": "address", "name": "author", "type": "address" },
-            { "internalType": "string", "name": "content", "type": "string" },
-            { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
-            { "internalType": "uint256", "name": "likeCount", "type": "uint256" },
-            { "internalType": "bool", "name": "exists", "type": "bool" }
-          ],
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "inputs": [{ "internalType": "address", "name": "_user", "type": "address" }],
-          "name": "getProfile",
-          "outputs": [
-            { "internalType": "string", "name": "username", "type": "string" },
-            { "internalType": "bool", "name": "exists", "type": "bool" }
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "likeCount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            }
           ],
           "stateMutability": "view",
           "type": "function"
         },
         {
           "inputs": [
-            { "internalType": "uint256", "name": "", "type": "uint256" },
-            { "internalType": "address", "name": "", "type": "address" }
+            {
+              "internalType": "address",
+              "name": "_user",
+              "type": "address"
+            }
           ],
-          "name": "hasLiked",
-          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+          "name": "getProfile",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            }
+          ],
           "stateMutability": "view",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_postId", "type": "uint256" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "hasLiked",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_postId",
+              "type": "uint256"
+            }
+          ],
           "name": "likePost",
           "outputs": [],
           "stateMutability": "nonpayable",
@@ -218,63 +468,141 @@
         {
           "inputs": [],
           "name": "owner",
-          "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
           "stateMutability": "view",
           "type": "function"
         },
         {
           "inputs": [],
           "name": "postCount",
-          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
           "stateMutability": "view",
           "type": "function"
         },
         {
           "inputs": [],
           "name": "postingFee",
-          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-          "name": "posts",
           "outputs": [
-            { "internalType": "uint256", "name": "id", "type": "uint256" },
-            { "internalType": "address", "name": "author", "type": "address" },
-            { "internalType": "string", "name": "content", "type": "string" },
-            { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
-            { "internalType": "uint256", "name": "likeCount", "type": "uint256" },
-            { "internalType": "bool", "name": "exists", "type": "bool" }
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
           ],
           "stateMutability": "view",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "string", "name": "_username", "type": "string" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "posts",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "likeCount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_username",
+              "type": "string"
+            }
+          ],
           "name": "registerUser",
           "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_newFee", "type": "uint256" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_newFee",
+              "type": "uint256"
+            }
+          ],
           "name": "setPostingFee",
           "outputs": [],
           "stateMutability": "nonpayable",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_postId", "type": "uint256" }],
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_postId",
+              "type": "uint256"
+            }
+          ],
           "name": "tipAuthor",
           "outputs": [],
           "stateMutability": "payable",
           "type": "function"
         },
         {
-          "inputs": [{ "internalType": "string", "name": "", "type": "string" }],
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
           "name": "usernameToAddress",
-          "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
           "stateMutability": "view",
           "type": "function"
         },
@@ -285,41 +613,328 @@
           "stateMutability": "nonpayable",
           "type": "function"
         },
-        { "stateMutability": "payable", "type": "receive" }
+        {
+          "stateMutability": "payable",
+          "type": "receive"
+        }
       ]
-    }
-  ,
+    },
     {
       "name": "ERC20Token",
-      "address": "0x0000000000000000000000000000000000000000",
+      "address": "0xD3B3bF2e85c34DC70b3D98a02A49Bd97430292A3",
       "network": "regtest",
       "chainId": 15001,
       "creationTx": null,
-      "deployedBy": null,
-      "constructorArgs": ["MIDL Test Token", "MTT", 1000000],
-      "timestamp": null,
+      "deployedBy": "0xF8483dddbCB103519F8BfE1713aBDa4f3A9C20b0",
+      "constructorArgs": [
+        "0xF8483dddbCB103519F8BfE1713aBDa4f3A9C20b0",
+        "0xF8483dddbCB103519F8BfE1713aBDa4f3A9C20b0"
+      ],
+      "timestamp": "2026-02-28T10:29:13.514Z",
       "testHarnessPath": "dapps/erc20-dashboard-hardhat",
       "sourcePath": "dapps/erc20-dashboard-hardhat/contracts/ERC20Token.sol",
       "solcVersion": "0.8.28",
       "optimizerEnabled": false,
       "evmVersion": "paris",
-      "verified": false,
+      "verified": true,
+      "verificationUrl": "https://blockscout.staging.midl.xyz/address/0xD3B3bF2e85c34DC70b3D98a02A49Bd97430292A3#code",
       "abi": [
-        { "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" },
-        { "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" },
-        { "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" },
-        { "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "from", "type": "address" }, { "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" },
-        { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "mint", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-        { "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burn", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burnFrom", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "value", "type": "uint256" }, { "internalType": "uint256", "name": "deadline", "type": "uint256" }, { "internalType": "uint8", "name": "v", "type": "uint8" }, { "internalType": "bytes32", "name": "r", "type": "bytes32" }, { "internalType": "bytes32", "name": "s", "type": "bytes32" }], "name": "permit", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-        { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }], "name": "nonces", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }
+        {
+          "inputs": [],
+          "name": "name",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "symbol",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "decimals",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalSupply",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "balanceOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transfer",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "approve",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            }
+          ],
+          "name": "allowance",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferFrom",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "mint",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "burn",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "burnFrom",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "name": "permit",
+          "outputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            }
+          ],
+          "name": "nonces",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
       ]
     }
   ]

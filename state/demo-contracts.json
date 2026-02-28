@@ -11,17 +11,17 @@
       "testHarnessPath": "dapps/social-guestbook-hardhat",
       "status": "active",
       "lastHealthCheck": "2026-02-27T00:00:00.000Z"
-    }
-  ,
+    },
     {
       "name": "ERC20Token",
       "templateSlug": "erc20-dashboard",
-      "address": "0x0000000000000000000000000000000000000000",
+      "address": "0xD3B3bF2e85c34DC70b3D98a02A49Bd97430292A3",
       "network": "staging",
       "chainId": 15001,
       "testHarnessPath": "dapps/erc20-dashboard-hardhat",
-      "status": "pending-deploy",
-      "lastHealthCheck": null
+      "status": "active",
+      "lastHealthCheck": "2026-02-28T10:29:13.514Z",
+      "chainEpoch": "2026-02"
     }
   ]
 }
