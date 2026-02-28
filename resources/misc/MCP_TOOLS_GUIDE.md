@@ -912,7 +912,7 @@ See [CONTRACT_VERIFICATION_GUIDE.md](CONTRACT_VERIFICATION_GUIDE.md) for details
     "midl": {
       "command": "node",
       "args": [
-        "/Users/macbook/Desktop/opensource/midl-mcp/build/index.js"
+        "<YOUR_PATH>/midl-mcp/build/index.js"
       ],
       "env": {
         "MIDL_NETWORK": "staging",

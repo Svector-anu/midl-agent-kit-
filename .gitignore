@@ -31,3 +31,17 @@ npm-debug.log*
 # Hardhat build artifacts and cache (generated — do not commit)
 artifacts/
 cache/
+
+# Hardhat-deploy generated deployment artifacts (source of truth is state/deployment-log.json)
+dapps/*/deployments/
+
+# Agent/skill session artifacts (local Claude Code tooling — not part of public kit)
+dapps/*/.agent/
+dapps/*/.agents/
+dapps/*/skills-lock.json
+
+# Internal test harnesses (smoke tests with mnemonic env, not public templates)
+dapps/*-test/
+
+# Internal-only project context (contains local paths and agent-internal scaffolding)
+project_context.md

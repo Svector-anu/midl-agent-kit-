@@ -21,7 +21,7 @@ Complete guide for setting up and using the MIDL Model Context Protocol (MCP) se
 ## Installation
 
 ```bash
-cd /Users/macbook/Desktop/opensource/midl-mcp
+cd <YOUR_PATH>/midl-mcp
 pnpm install
 pnpm build
 ```
@@ -288,7 +288,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
   "mcpServers": {
     "midl": {
       "command": "node",
-      "args": ["/Users/macbook/Desktop/opensource/midl-mcp/dist/index.js"],
+      "args": ["<YOUR_PATH>/midl-mcp/dist/index.js"],
       "env": {
         "MIDL_NETWORK": "staging",
         "MIDL_MNEMONIC": "..."
@@ -345,7 +345,7 @@ After updating the config, restart Claude Desktop for changes to take effect.
 - **Staging Mempool:** https://mempool.staging.midl.xyz
 - **Staging Blockscout:** https://blockscout.staging.midl.xyz
 - **MIDL Docs:** https://docs.midl.xyz
-- **Deployment Guide:** `/Users/macbook/Desktop/opensource/midl-mcp/MIDL_DEPLOYMENT_GUIDE.md`
+- **Deployment Guide:** `<YOUR_PATH>/midl-mcp/MIDL_DEPLOYMENT_GUIDE.md`
 
 ---
 
