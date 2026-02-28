@@ -53,7 +53,7 @@ npm run dev
 
 ---
 
-## Step 3 — Deploy (if contract is missing or testnet reset)
+## Step 3 — Deploy (if demo instance is unavailable)
 
 ```bash
 cd dapps/social-guestbook-hardhat
@@ -69,7 +69,7 @@ state/demo-contracts.json updated
 deploy-contracts: COMPLETE
 ```
 
-Takes 30 seconds to 2 minutes. If it appears to hang after "Executing transaction...", wait — this is normal on staging (Bitcoin block time).
+Waiting for confirmation. This may take a moment — Bitcoin anchoring runs in the background. If it takes longer than usual, check the mempool explorer link printed by the script.
 
 ---
 

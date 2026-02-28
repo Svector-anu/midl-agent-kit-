@@ -121,7 +121,7 @@ To add a new template:
 
 The scaffold skill enforces `requiredCapabilities` — templates that need features not yet enabled in `capabilities.json` are gated automatically.
 
-**v1 freeze:** No new templates until the two shipped ones are fully validated across a testnet reset cycle.
+**v1 freeze:** No new templates until the two shipped ones are fully validated across a staging refresh cycle.
 
 ---
 
@@ -136,7 +136,7 @@ on mount → call useDemoHealth()
   → if code === "0x" (no bytecode at address):
       status = "unavailable"
       DemoHealthBanner renders:
-        "⚠ Demo contract unavailable — testnet may have reset."
+        "⚠ Demo instance unavailable — staging has refreshed."
         [Redeploy demo] → modal with exact CLI commands
         [Not now] → dismiss for session
   → if code exists:

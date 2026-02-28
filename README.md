@@ -6,7 +6,7 @@ A production-ready monorepo for building Bitcoin-native dApps on [MIDL](https://
 
 ## Who this is for
 
-- **Developers** building on MIDL who want a running dApp in under 10 minutes
+- **Developers** building on MIDL who want a running dApp up quickly
 - **Teams** who want pre-wired wallet connection, contract reads/writes, and auto-heal UX out of the box
 - **AI agents** (Claude Code) that use the bundled skills to scaffold, deploy, and verify without manual setup
 
@@ -38,7 +38,7 @@ cd dapps/<your-slug>
 npm install
 npm run dev
 
-# 4. Deploy a contract (if testnet has reset)
+# 4. Deploy a contract (if the demo instance is unavailable)
 cd dapps/social-guestbook-hardhat
 export MNEMONIC="your twelve words"
 npx hardhat deploy --network regtest --tags SocialGuestbook
@@ -60,13 +60,13 @@ When you run a deploy script, both files update automatically. You never edit th
 
 ---
 
-## What happens when testnet resets
+## What happens after a network refresh
 
-MIDL staging resets periodically. Every deployed contract is wiped.
+MIDL staging refreshes periodically. When this happens, demo instances may become unavailable.
 
 The app detects this and shows a banner:
 
-> ⚠ Demo contract unavailable — testnet may have reset.
+> ⚠ Demo instance unavailable — staging has refreshed.
 
 Click **Redeploy demo** — the modal shows the exact commands. Run them, then click **Done — reload app**. The app re-reads `state/deployment-log.json` and the banner disappears.
 
