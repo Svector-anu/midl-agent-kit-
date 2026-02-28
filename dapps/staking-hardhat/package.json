@@ -1,0 +1,31 @@
+{
+  "name": "staking-hardhat",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile --network regtest"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "viem": "npm:@midl/viem@2.21.39"
+  },
+  "devDependencies": {
+    "@midl/core": "3.0.2",
+    "@midl/executor": "3.0.2",
+    "@midl/hardhat-deploy": "3.0.2",
+    "@midl/node": "^3.0.2",
+    "@midl/viem": "*",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^20.0.0",
+    "dotenv": "^16.0.0",
+    "ethers": "^6.4.0",
+    "hardhat": "^2.22.0",
+    "hardhat-deploy": "^1.0.4",
+    "hardhat-deploy-ethers": "^0.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

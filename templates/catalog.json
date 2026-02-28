@@ -22,6 +22,16 @@
       "description": "ERC-20 token dashboard with balance, transfer, approve, and optional mint."
     },
     {
+      "id": "staking-dashboard",
+      "displayName": "Staking Dashboard",
+      "status": "disabled",
+      "sourceDir": "templates/staking-dashboard",
+      "requiredContracts": ["StakingRewards", "RewardToken"],
+      "requiredCapabilities": ["erc20", "staking"],
+      "features": ["reads", "writes", "stake", "unstake", "claimRewards"],
+      "description": "ERC-20 staking dashboard. Stake tokens, earn rewards, claim anytime. Pre-funded reward pool, owner-adjustable rate."
+    },
+    {
       "id": "base-only",
       "displayName": "Blank Starter",
       "status": "stable",

@@ -17,6 +17,7 @@
     "walletXverse": true,
     "walletLeather": true,
     "erc20": true,
+    "staking": true,
     "erc721": false,
     "erc1155": false,
     "erc8004": false,
