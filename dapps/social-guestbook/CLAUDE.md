@@ -2,13 +2,13 @@
 
 ## Auto-Activation
 
-See canonical rules: `~/midl_agent_skills/skills/ui-auto-activation/SKILL.md`
+See canonical rules: `<REPO_ROOT>/skills/ui-auto-activation/SKILL.md`
 
 All triggers from that skill are active in this dApp.
 
 ## MIDL Gates
 
-Any wallet / tx flow / deploy / SDK work → run `~/midl_agent_skills/skills/midl-preflight/SKILL.md` first.
+Any wallet / tx flow / deploy / SDK work → run `<REPO_ROOT>/skills/midl-preflight/SKILL.md` first.
 
 ## Stack
 

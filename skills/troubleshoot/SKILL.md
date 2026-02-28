@@ -2,8 +2,8 @@
 
 ## Boot Sequence
 
-1. Read `~/midl_agent_skills/capabilities.json`
-2. Read `~/midl_agent_skills/MIDDLEWARE.md`
+1. Read `<REPO_ROOT>/capabilities.json`
+2. Read `<REPO_ROOT>/MIDDLEWARE.md`
 
 > Preflight not required here — you are already past the implementation stage.
 

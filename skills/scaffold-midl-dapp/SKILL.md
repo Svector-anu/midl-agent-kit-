@@ -2,9 +2,9 @@
 
 ## Boot Sequence (ALWAYS first)
 
-1. Read `~/midl_agent_skills/capabilities.json`
-2. Read `~/midl_agent_skills/MIDDLEWARE.md`
-3. Read `~/midl_agent_skills/templates/catalog.json` — extract `templates[]`
+1. Read `<REPO_ROOT>/capabilities.json`
+2. Read `<REPO_ROOT>/MIDDLEWARE.md`
+3. Read `<REPO_ROOT>/templates/catalog.json` — extract `templates[]`
 4. Run `skills/midl-preflight/SKILL.md` — no exceptions
 
 ---

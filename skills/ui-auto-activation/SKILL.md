@@ -6,8 +6,8 @@ Defines automatic skill triggers for any MIDL dApp frontend. Copy or symlink thi
 
 ## Boot Sequence
 
-1. Read `~/midl_agent_skills/capabilities.json` — confirm `features.uiSkills === true`
-2. Read `~/midl_agent_skills/MIDDLEWARE.md`
+1. Read `<REPO_ROOT>/capabilities.json` — confirm `features.uiSkills === true`
+2. Read `<REPO_ROOT>/MIDDLEWARE.md`
 3. If `features.uiSkills !== true` → call `pauseIfUnsupported("uiSkills")` and STOP
 
 ---
@@ -81,7 +81,7 @@ Then reference this SKILL.md in the dApp's `CLAUDE.md`:
 
 ```markdown
 ## Auto-Activation
-See: ~/midl_agent_skills/skills/ui-auto-activation/SKILL.md
+See: <REPO_ROOT>/skills/ui-auto-activation/SKILL.md
 ```
 
 ---
