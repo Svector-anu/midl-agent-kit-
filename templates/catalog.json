@@ -24,7 +24,7 @@
     {
       "id": "staking-dashboard",
       "displayName": "Staking Dashboard",
-      "status": "disabled",
+      "status": "experimental",
       "sourceDir": "templates/staking-dashboard",
       "requiredContracts": ["StakingRewards", "RewardToken"],
       "requiredCapabilities": ["erc20", "staking"],

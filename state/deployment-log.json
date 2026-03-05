@@ -936,6 +936,37 @@
           "type": "function"
         }
       ]
+    },
+    {
+      "name": "RewardToken",
+      "address": "0xc9c5ae3179FD2486D6Ce45B1c8cd88591117513a",
+      "network": "regtest",
+      "chainId": 15001,
+      "timestamp": "2026-03-01T02:19:08.723Z",
+      "constructorArgs": [],
+      "solcVersion": "0.8.28",
+      "optimizerEnabled": false,
+      "evmVersion": "paris",
+      "verified": true,
+      "verificationUrl": "https://blockscout.staging.midl.xyz/address/0xc9c5ae3179FD2486D6Ce45B1c8cd88591117513a#code",
+      "abi": []
+    },
+    {
+      "name": "StakingRewards",
+      "address": "0xb0F7979AfDC413FDd5Df17b1D205b3B92287F1c3",
+      "network": "regtest",
+      "chainId": 15001,
+      "timestamp": "2026-03-01T02:19:38.235Z",
+      "constructorArgs": [
+        "0xD3B3bF2e85c34DC70b3D98a02A49Bd97430292A3",
+        "0xc9c5ae3179FD2486D6Ce45B1c8cd88591117513a"
+      ],
+      "solcVersion": "0.8.28",
+      "optimizerEnabled": false,
+      "evmVersion": "paris",
+      "verified": true,
+      "verificationUrl": "https://blockscout.staging.midl.xyz/address/0xb0F7979AfDC413FDd5Df17b1D205b3B92287F1c3#code",
+      "abi": []
     }
   ]
 }

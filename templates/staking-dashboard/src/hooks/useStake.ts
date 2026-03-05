@@ -4,7 +4,7 @@ import { STAKING_ADDRESS, STAKING_ABI } from "../lib/contract";
 import { useMidlContractWrite } from "./useMidlContractWrite";
 
 export function useStake(onSuccess?: () => void) {
-  const { write, finalize, phase, error, btcTxId, reset } = useMidlContractWrite(onSuccess);
+  const { write, finalize, phase, error, btcTxId, evmTxHash, reset } = useMidlContractWrite(onSuccess);
 
   const stake = useCallback(
     (amount: bigint) => {
@@ -18,5 +18,5 @@ export function useStake(onSuccess?: () => void) {
     [write]
   );
 
-  return { stake, phase, error, btcTxId, finalize, reset };
+  return { stake, phase, error, btcTxId, evmTxHash, finalize, reset };
 }

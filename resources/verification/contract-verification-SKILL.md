@@ -139,6 +139,26 @@ pragma solidity ^0.8.24;
 pragma solidity 0.8.24;
 ```
 
+### Issue: TLS Error — "other side closed" or "bad record mac"
+
+**Symptom:**
+```
+A network request failed. Error: other side closed
+A network request failed. Error: ssl3_get_record: decryption failed
+```
+
+**Cause:** Node.js TLS incompatibility with Cloudflare SSL on staging Blockscout. Not your fault.
+
+**Fix:**
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0 npx hardhat verify --network regtest <ADDRESS> [args...]
+```
+
+**Note:** Source code may have already been submitted before the error. Check Blockscout first:
+```bash
+curl -s "https://blockscout.staging.midl.xyz/api?module=contract&action=getsourcecode&address=<ADDRESS>" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['result'][0].get('SourceCode','NOT VERIFIED')[:50])"
+```
+
 ### Issue: Constructor Arguments Missing
 **Fix:**
 1. Find deployment script

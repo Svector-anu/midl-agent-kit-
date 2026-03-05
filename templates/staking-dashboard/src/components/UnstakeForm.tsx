@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { formatEther, parseUnits } from "viem";
 import { useAccount } from "wagmi";
+import { useAccounts } from "@midl/react";
 import { useStaking } from "../hooks/useStaking";
 import { useUnstake } from "../hooks/useUnstake";
 import { TxStatus } from "./TxStatus";
@@ -8,9 +9,10 @@ import { TxStatus } from "./TxStatus";
 export function UnstakeForm() {
   const [amount, setAmount] = useState("");
   const { address } = useAccount();
+  const { isConnected } = useAccounts();
   const { myStaked } = useStaking();
 
-  const { unstake, phase, error, btcTxId, finalize, reset } = useUnstake(() => {
+  const { unstake, phase, error, btcTxId, evmTxHash, finalize, reset } = useUnstake(() => {
     setAmount("");
   });
 
@@ -41,15 +43,15 @@ export function UnstakeForm() {
             placeholder="0.0"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            disabled={busy || !address}
+            disabled={busy}
           />
         </label>
         <button
           className="btn-primary"
           type="submit"
-          disabled={busy || !address || !amount}
+          disabled={busy || !isConnected || !amount}
         >
-          {!address ? "Connect wallet to unstake" : "Unstake"}
+          {!isConnected ? "Connect wallet to unstake" : "Unstake"}
         </button>
       </form>
       {phase !== "idle" && (
@@ -57,6 +59,7 @@ export function UnstakeForm() {
           phase={phase}
           error={error}
           btcTxId={btcTxId}
+          evmTxHash={evmTxHash}
           onReset={reset}
           onFinalize={phase === "adding-intention" ? finalize : undefined}
         />

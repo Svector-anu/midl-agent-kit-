@@ -4,7 +4,7 @@ import { STAKING_ADDRESS, STAKING_ABI } from "../lib/contract";
 import { useMidlContractWrite } from "./useMidlContractWrite";
 
 export function useUnstake(onSuccess?: () => void) {
-  const { write, finalize, phase, error, btcTxId, reset } = useMidlContractWrite(onSuccess);
+  const { write, finalize, phase, error, btcTxId, evmTxHash, reset } = useMidlContractWrite(onSuccess);
 
   const unstake = useCallback(
     (amount: bigint) => {
@@ -18,5 +18,5 @@ export function useUnstake(onSuccess?: () => void) {
     [write]
   );
 
-  return { unstake, phase, error, btcTxId, finalize, reset };
+  return { unstake, phase, error, btcTxId, evmTxHash, finalize, reset };
 }

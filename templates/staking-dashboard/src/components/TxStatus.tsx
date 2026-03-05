@@ -4,6 +4,7 @@ interface TxStatusProps {
   phase: TxPhase;
   error: string | null;
   btcTxId: string | null;
+  evmTxHash?: `0x${string}` | null;
   onReset?: () => void;
   onFinalize?: () => void;
 }
@@ -19,7 +20,7 @@ const PHASE_LABELS: Record<TxPhase, string> = {
   error: "",
 };
 
-export function TxStatus({ phase, error, btcTxId, onReset, onFinalize }: TxStatusProps) {
+export function TxStatus({ phase, error, btcTxId, evmTxHash, onReset, onFinalize }: TxStatusProps) {
   if (phase === "idle") return null;
 
   return (
@@ -53,6 +54,16 @@ export function TxStatus({ phase, error, btcTxId, onReset, onFinalize }: TxStatu
               rel="noopener noreferrer"
             >
               View BTC tx
+            </a>
+          )}
+          {(phase === "pending-confirm" || phase === "confirmed") && evmTxHash && (
+            <a
+              className="tx-status__explorer-link"
+              href={`https://blockscout.staging.midl.xyz/tx/${evmTxHash}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Blockscout
             </a>
           )}
         </>

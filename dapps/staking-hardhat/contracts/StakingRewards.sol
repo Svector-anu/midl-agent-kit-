@@ -4,7 +4,7 @@ pragma solidity 0.8.28;
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
  * @title StakingRewards
@@ -36,7 +36,7 @@ contract StakingRewards is Ownable, ReentrancyGuard {
     event RewardRateUpdated(uint256 oldRate, uint256 newRate);
     event RewardsFunded(uint256 amount);
 
-    constructor(address _stakeToken, address _rewardToken) Ownable(msg.sender) {
+    constructor(address _stakeToken, address _rewardToken) {
         require(_stakeToken != address(0), "Invalid stake token");
         require(_rewardToken != address(0), "Invalid reward token");
         stakeToken = IERC20(_stakeToken);

@@ -71,6 +71,20 @@ npx hardhat deploy --network regtest --tags YourContract
 
 ## Critical Configuration Requirements
 
+### 0. OpenZeppelin Version (MUST BE v4)
+
+**Use `^4.9.0`, NOT `^5.0.0`.**
+
+OZ v5 added `Bytes.sol` which uses the `mcopy` opcode. MIDL staging runs `evmVersion: "paris"` — `mcopy` is Cancun-only. Compilation fails with:
+```
+TypeError: The "mcopy" instruction is only available for Cancun-compatible VMs
+```
+
+OZ v4 path differences to know:
+- `ReentrancyGuard` → `security/ReentrancyGuard.sol` (not `utils/`)
+- `ERC20Permit` → `extensions/draft-ERC20Permit.sol` (not `extensions/ERC20Permit.sol`)
+- `Ownable` → no constructor arg (owner auto-set to `msg.sender`)
+
 ### 1. Viem Override (MOST IMPORTANT!)
 
 **Required in package.json:**

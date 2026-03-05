@@ -6,6 +6,7 @@ import {
 } from "@midl/executor-react";
 import { useAccounts, useWaitForTransaction } from "@midl/react";
 import { usePublicClient } from "wagmi";
+import { keccak256 } from "viem";
 import type { TxPhase } from "../types/staking";
 
 export interface WriteTxParams {
@@ -26,6 +27,7 @@ export function useMidlContractWrite(onSuccess?: () => void) {
   const [phase, setPhase] = useState<TxPhase>("idle");
   const [error, setError] = useState<string | null>(null);
   const [btcTxId, setBtcTxId] = useState<string | null>(null);
+  const [evmTxHash, setEvmTxHash] = useState<`0x${string}` | null>(null);
 
   const { ordinalsAccount, paymentAccount } = useAccounts();
   const { addTxIntention, txIntentions } = useAddTxIntention();
@@ -67,12 +69,18 @@ export function useMidlContractWrite(onSuccess?: () => void) {
 
           setPhase("broadcasting");
 
+          const serializedTxs = txIntentionsRef.current.map(
+            (it: { signedEvmTransaction?: string }) => it.signedEvmTransaction as `0x${string}`
+          );
+
           await publicClientRef.current?.sendBTCTransactions({
-            serializedTransactions: txIntentionsRef.current.map(
-              (it) => it.signedEvmTransaction as `0x${string}`
-            ),
+            serializedTransactions: serializedTxs,
             btcTransaction: txHex,
           });
+
+          if (serializedTxs[0]) {
+            setEvmTxHash(keccak256(serializedTxs[0]));
+          }
 
           setBtcTxId(txId);
           setPhase("pending-confirm");
@@ -126,7 +134,8 @@ export function useMidlContractWrite(onSuccess?: () => void) {
     setPhase("idle");
     setError(null);
     setBtcTxId(null);
+    setEvmTxHash(null);
   }, []);
 
-  return { write, finalize, phase, error, btcTxId, reset };
+  return { write, finalize, phase, error, btcTxId, evmTxHash, reset };
 }

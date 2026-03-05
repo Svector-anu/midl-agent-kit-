@@ -18,9 +18,11 @@ function getContractEntry(name: string) {
 
 const stakingContract = getContractEntry("StakingRewards");
 const stakeTokenContract = getContractEntry("ERC20Token");
+const rewardTokenContract = getContractEntry("RewardToken");
 
 export const STAKING_ADDRESS = stakingContract.address as `0x${string}`;
 export const STAKE_TOKEN_ADDRESS = stakeTokenContract.address as `0x${string}`;
+export const REWARD_TOKEN_ADDRESS = rewardTokenContract.address as `0x${string}`;
 
 export const STAKING_ABI: Abi = [
   {
@@ -73,6 +75,20 @@ export const STAKING_ABI: Abi = [
     outputs: [],
   },
   {
+    type: "function",
+    name: "owner",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ name: "", type: "address" }],
+  },
+  {
+    type: "function",
+    name: "setRewardRate",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "newRate", type: "uint256" }],
+    outputs: [],
+  },
+  {
     type: "event",
     name: "Staked",
     inputs: [
@@ -95,6 +111,16 @@ export const STAKING_ABI: Abi = [
       { name: "user", type: "address", indexed: true },
       { name: "amount", type: "uint256", indexed: false },
     ],
+  },
+];
+
+export const REWARD_TOKEN_ABI: Abi = [
+  {
+    type: "function",
+    name: "balanceOf",
+    stateMutability: "view",
+    inputs: [{ name: "account", type: "address" }],
+    outputs: [{ name: "", type: "uint256" }],
   },
 ];
 

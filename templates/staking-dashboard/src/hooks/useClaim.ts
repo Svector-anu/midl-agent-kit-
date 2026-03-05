@@ -4,7 +4,7 @@ import { STAKING_ADDRESS, STAKING_ABI } from "../lib/contract";
 import { useMidlContractWrite } from "./useMidlContractWrite";
 
 export function useClaim(onSuccess?: () => void) {
-  const { write, finalize, phase, error, btcTxId, reset } = useMidlContractWrite(onSuccess);
+  const { write, finalize, phase, error, btcTxId, evmTxHash, reset } = useMidlContractWrite(onSuccess);
 
   const claim = useCallback(() => {
     const data = encodeFunctionData({
@@ -15,5 +15,5 @@ export function useClaim(onSuccess?: () => void) {
     write({ to: STAKING_ADDRESS, data });
   }, [write]);
 
-  return { claim, phase, error, btcTxId, finalize, reset };
+  return { claim, phase, error, btcTxId, evmTxHash, finalize, reset };
 }

@@ -11,10 +11,14 @@ Skills that expand on each section:
 
 Every MIDL hardhat project needs exactly these packages. Use this as the canonical `package.json`:
 
+> **⚠️ OZ Version:** Use `^4.9.0`, NOT `^5.0.0`.
+> OZ v5 added `Bytes.sol` which uses the `mcopy` opcode (Cancun EVM only).
+> MIDL staging uses `evmVersion: "paris"` — `mcopy` is unavailable. Compilation fails.
+
 ```json
 {
   "dependencies": {
-    "@openzeppelin/contracts": "^5.0.0",
+    "@openzeppelin/contracts": "^4.9.0",
     "viem": "npm:@midl/viem@2.21.39"
   },
   "devDependencies": {
@@ -205,6 +209,57 @@ export default deploy;
 - `midl.execute()` — separate call, submits the transaction
 - `midl.get(name)` — returns `{ address, ... } | null` (not `getDeployment`)
 - `midl.evm.address` — deployer's EVM address (after `initialize()`)
+
+---
+
+## 5a. Multi-Contract Deploy Pattern (CRITICAL)
+
+> **⚠️ NEVER use `deploy.dependencies`** for contracts that depend on each other.
+>
+> **Why:** When tag B declares `deploy.dependencies = ["A"]`, hardhat-deploy re-runs
+> script A before B. The re-run deploys A again. MIDL's EVM address calculation means
+> both A and B can end up at the **same address** (nonce collision), breaking everything.
+>
+> **Symptom:** `midl.get("ContractB")` returns the same address as ContractA.
+> Both `deployments/A.json` and `deployments/B.json` show identical addresses.
+>
+> **Fix:** Use a single combined deploy script that deploys A then B sequentially
+> in the same script body. Each gets its own `execute()` call — BTC confirms between
+> them, ensuring distinct EVM nonces and distinct addresses.
+
+```typescript
+// ✅ CORRECT — single script, two sequential execute() calls
+const deploy: DeployFunction = async (hre) => {
+  const { midl } = hre;
+  await midl.initialize();
+
+  // Deploy A — execute() blocks until BTC confirms
+  await midl.deploy("TokenA", []);
+  await midl.execute();
+  const a = await midl.get("TokenA");
+  if (!a) throw new Error("TokenA not found");
+
+  // Deploy B — separate BTC tx, different nonce → different address
+  await midl.deploy("ContractB", [a.address]);
+  await midl.execute();
+  const b = await midl.get("ContractB");
+  if (!b) throw new Error("ContractB not found");
+
+  if (a.address === b.address) {
+    throw new Error(`Nonce collision: both at ${a.address}. Re-run after 1 minute.`);
+  }
+};
+
+deploy.tags = ["DeployAll"];
+// NO deploy.dependencies
+export default deploy;
+```
+
+```typescript
+// ❌ WRONG — never do this
+deploy.tags = ["ContractB"];
+deploy.dependencies = ["TokenA"]; // causes re-run + nonce collision
+```
 
 ---
 

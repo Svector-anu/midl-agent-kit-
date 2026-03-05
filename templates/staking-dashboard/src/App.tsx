@@ -2,6 +2,7 @@ import { useState } from "react";
 import { WalletProvider } from "./wallet/WalletProvider";
 import { WalletConnect } from "./components/WalletConnect";
 import { DemoHealthBanner } from "./components/DemoHealthBanner";
+import { AdminCommandsModal } from "./components/AdminCommandsModal";
 import { StakingOverview } from "./components/StakingOverview";
 import { StakeForm } from "./components/StakeForm";
 import { UnstakeForm } from "./components/UnstakeForm";
@@ -24,6 +25,7 @@ export function App() {
         <DemoHealthBanner />
         <header className="app-header">
           <h1 className="app-header__title">Staking Dashboard</h1>
+          <AdminCommandsModal />
           <WalletConnect />
         </header>
         <main className="app-main">

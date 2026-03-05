@@ -12,6 +12,15 @@ A production-ready monorepo for building Bitcoin-native dApps on [MIDL](https://
 
 ---
 
+## Status
+
+- **4 templates**: Social Guestbook (stable), Blank Starter (stable), ERC-20 Dashboard (experimental), Staking Dashboard (experimental)
+- All demo contracts are deployed and verified on MIDL staging — tracked in `state/deployment-log.json`
+- Staking Dashboard ships with a live reward pool, owner-adjustable rate, and a full admin panel UI
+- See [`docs/STATUS.md`](docs/STATUS.md) for the full ASCII status block (paste-ready for team chat)
+
+---
+
 ## What's shipped (v1)
 
 | Template | Status | What it does |
@@ -116,3 +125,11 @@ resources/              Reference docs and skill copies for Claude Code
 ## Adding templates (future)
 
 Templates are frozen at v1. The registry is `templates/catalog.json`. Each entry declares `status`, `requiredContracts`, and `requiredCapabilities` — the scaffold skill enforces these at gate time.
+
+---
+
+## Optional: long-term agent memory (SharedContext)
+
+If your LLM client supports MCP, you can plug in SharedContext as a shared memory layer for this kit. It helps agents remember previous template choices, MIDL-specific gotchas, and deploy patterns across sessions — without re-explaining them every time. File-based state (`deployment-log.json`, `demo-contracts.json`, `erc-compatibility.json`) always wins over any stored facts.
+
+See [`resources/memory/SHARED_CONTEXT.md`](resources/memory/SHARED_CONTEXT.md) for usage patterns and safety rules.

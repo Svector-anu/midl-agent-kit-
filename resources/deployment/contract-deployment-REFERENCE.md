@@ -456,11 +456,36 @@ Error HH101: Hardhat was set to use chain id 15001, but connected to chain with 
 3. **Standard Solidity** - Any EVM-compatible contract works
 4. **Multiple transactions** - Can deploy complex contracts with multiple `execute()` calls
 5. **Gas estimation** - Works automatically (no `skipEstimateGas` needed)
+6. **OpenZeppelin v4** (`^4.9.0`) - Paris-compatible, all standard patterns work
 
 ### What Doesn't Work ❌
 1. **Regtest RPC** - Missing Executor system contracts
 2. **No viem override** - Gas estimation fails/hangs
 3. **skipEstimateGas** - Dangerous workaround, not needed with proper config
+4. **OpenZeppelin v5** (`^5.0.0`) - Uses `mcopy` (Cancun opcode) in `Bytes.sol`. Fails with `evmVersion: paris`
+5. **`deploy.dependencies`** - Causes re-run of dependent script → EVM nonce collision → two contracts at same address
+
+---
+
+## OpenZeppelin v4 vs v5 — Import Paths
+
+MIDL staging uses `evmVersion: "paris"`. **Always use OZ v4 (`^4.9.0`).**
+
+| Feature | OZ v4 import | OZ v5 import (DON'T USE) |
+|---|---|---|
+| `Ownable` | `access/Ownable.sol` | same |
+| `ReentrancyGuard` | **`security/ReentrancyGuard.sol`** | `utils/ReentrancyGuard.sol` |
+| `ERC20Permit` | **`token/ERC20/extensions/draft-ERC20Permit.sol`** | `token/ERC20/extensions/ERC20Permit.sol` |
+| `SafeERC20` | `token/ERC20/utils/SafeERC20.sol` | same |
+
+**Constructor differences:**
+```solidity
+// OZ v4 — Ownable takes no args, owner = msg.sender automatically
+constructor() Ownable() {}
+
+// OZ v5 — Ownable requires explicit owner (DO NOT USE on MIDL)
+constructor(address owner) Ownable(owner) {}
+```
 
 ### Critical Configuration
 The **#1 most important thing** is the viem override in package.json:

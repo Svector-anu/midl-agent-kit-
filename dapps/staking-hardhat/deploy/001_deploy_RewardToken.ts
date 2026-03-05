@@ -21,10 +21,9 @@ const deploy: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await midl.initialize();
 
-  const deployerAddress: string = midl.evm.address;
-  console.log(`\nDeployer EVM address: ${deployerAddress}`);
+  console.log(`\nDeployer EVM address: ${midl.evm.address}`);
 
-  await midl.deploy("RewardToken", [deployerAddress]);
+  await midl.deploy("RewardToken", []);
   await midl.execute();
 
   const deployed = await midl.get("RewardToken");
@@ -55,7 +54,7 @@ const deploy: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
     network: "regtest",
     chainId: 15001,
     timestamp: deployedAt,
-    constructorArgs: [deployerAddress],
+    constructorArgs: [],
     solcVersion: "0.8.28",
     optimizerEnabled: false,
     evmVersion: "paris",
@@ -72,7 +71,7 @@ const deploy: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   writeJson("deployment-log.json", deployLog as unknown as Record<string, unknown>);
   console.log("state/deployment-log.json updated");
   console.log("\ndeploy-contracts: COMPLETE");
-  console.log(`Verify: npx hardhat verify --network regtest ${newAddress} ${deployerAddress}`);
+  console.log(`Verify: npx hardhat verify --network regtest ${newAddress}`);
 };
 
 deploy.tags = ["RewardToken"];

@@ -127,6 +127,31 @@ npx hardhat verify --network regtest <CONTRACT_ADDRESS> [args...]
 
 ---
 
+## ⚠️ TLS Error on Staging — Known Issue
+
+`npx hardhat verify` sometimes fails with:
+```
+Error: other side closed
+Error: ssl3_get_record: decryption failed or bad record mac
+```
+
+This is a Node.js TLS incompatibility with Cloudflare's SSL on the staging Blockscout API. It is **not** a problem with your contract or settings.
+
+**Fix:** Prepend `NODE_TLS_REJECT_UNAUTHORIZED=0`:
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0 npx hardhat verify --network regtest <ADDRESS> [args...]
+```
+
+Safe for testnet only. Never use on mainnet.
+
+**Important:** Even when you see "other side closed", the source code may have already been submitted successfully. Always check Blockscout before retrying:
+```bash
+curl -s "https://blockscout.staging.midl.xyz/api?module=contract&action=getsourcecode&address=<ADDRESS>" \
+  | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['result'][0].get('SourceCode','')[:60] or 'NOT VERIFIED')"
+```
+
+---
+
 ## 🛠️ Hardhat Configuration
 
 Your `hardhat.config.ts` must include:

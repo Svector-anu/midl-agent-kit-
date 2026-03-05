@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "chainEpoch": "2026-02",
+  "chainEpoch": "2026-03",
   "contracts": [
     {
       "name": "SocialGuestbook",
@@ -22,6 +22,17 @@
       "status": "active",
       "lastHealthCheck": "2026-02-28T10:29:13.514Z",
       "chainEpoch": "2026-02"
+    },
+    {
+      "name": "StakingRewards",
+      "templateSlug": "staking-dashboard",
+      "address": "0xb0F7979AfDC413FDd5Df17b1D205b3B92287F1c3",
+      "network": "staging",
+      "chainId": 15001,
+      "testHarnessPath": "dapps/staking-hardhat",
+      "status": "active",
+      "lastHealthCheck": "2026-03-01T02:19:38.235Z",
+      "chainEpoch": "2026-03"
     }
   ]
 }

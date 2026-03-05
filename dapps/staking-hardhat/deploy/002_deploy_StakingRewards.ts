@@ -137,5 +137,4 @@ const deploy: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 };
 
 deploy.tags = ["StakingRewards"];
-deploy.dependencies = ["RewardToken"];
 export default deploy;
