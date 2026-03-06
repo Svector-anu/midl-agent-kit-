@@ -1,6 +1,8 @@
 # MIDL Agent Kit — v1
 
-A production-ready monorepo for building Bitcoin-native dApps on [MIDL](https://midl.xyz): smart contracts that settle on Bitcoin, scaffolded as Vite + React apps, deployed and verified from a single CLI command.
+A Claude-powered development kit for building Bitcoin-anchored dApps on [MIDL](https://midl.xyz). Bring an idea, get a deployed contract and running frontend. The kit provides the templates, deploy harness, and agent skills — Claude provides the execution.
+
+It's an agent-native kit — the skills, state files, and templates are designed to be operated by Claude, not just read by a human. The human says what they want to build. Claude does the rest.
 
 ---
 
@@ -36,24 +38,16 @@ Both named templates have a live contract deployed and verified on MIDL staging.
 ## Quick start
 
 ```bash
-# 1. Clone
 git clone https://github.com/Svector-anu/midl-agent-kit- && cd midl-agent-kit-
-
-# 2. Scaffold a dApp (Claude Code runs the skill)
-# Open Claude Code and say: "scaffold a social-guestbook dApp"
-
-# 3. Install and run
-cd dapps/<your-slug>
-npm install
-npm run dev
-
-# 4. Deploy a contract (if the demo instance is unavailable)
-cd dapps/social-guestbook-hardhat
-export MNEMONIC="your twelve words"
-npx hardhat deploy --network regtest --tags SocialGuestbook
 ```
 
-See [`docs/GOLDEN_PATH.md`](docs/GOLDEN_PATH.md) for the full step-by-step with expected outputs.
+Then open **Claude Code** in that folder and just talk:
+
+> "I want to build a staking dApp on MIDL"
+
+Claude will ask which template you want, scaffold it, install dependencies, deploy contracts if needed, and tell you exactly when to run `npm run dev`. You don't need to read the rest of this README to get started — just clone and chat.
+
+Everything else (deploy, verify, wire contracts, configure the frontend) is handled through conversation.
 
 ---
 
